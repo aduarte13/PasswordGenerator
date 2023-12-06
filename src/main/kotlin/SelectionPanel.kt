@@ -32,7 +32,7 @@ class SelectionPanel(
 
         //
         textFieldLength.text = "" + pass.getLength()
-        textFieldLength.preferredSize = Dimension(30, 30)
+        textFieldLength.preferredSize = Dimension(45, 30)
         textFieldLength.isEditable = false
         textFieldLength.horizontalAlignment = JTextField.CENTER
         textFieldLength.font = Font("Arial", Font.BOLD , 25)
