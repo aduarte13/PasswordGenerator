@@ -13,7 +13,7 @@ class Main : JFrame(){
         val selectionPanel = SelectionPanel(pass, displayPanel)
 
         // set panel sizes
-        selectionPanel.preferredSize = Dimension(350, 50)
+        selectionPanel.preferredSize = Dimension(350, 100)
         displayPanel.preferredSize = Dimension(350, 50)
 
         // add panels to frame
@@ -29,6 +29,6 @@ class Main : JFrame(){
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     Main()
 }
