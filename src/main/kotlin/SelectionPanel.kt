@@ -25,6 +25,8 @@ class SelectionPanel(
         border = BorderFactory.createTitledBorder("Options")
         layout = FlowLayout()
 
+
+
         //
         textFieldLength.text = "" + pass.getLength()
         textFieldLength.preferredSize = Dimension(30, 30)
@@ -33,6 +35,7 @@ class SelectionPanel(
 
         // action listeners
         buttonMinusLength.addActionListener(SelectionListener())
+        buttonPlusLength.addActionListener(SelectionListener())
 
         panelLengthSelection.add(buttonMinusLength)
         panelLengthSelection.add(textFieldLength)
@@ -49,7 +52,10 @@ class SelectionPanel(
                 pass.setLength(pass.getLength() - 1)
                 textFieldLength.text = "" + pass.getLength()
             }
-            else if (e.source == buttonPlusLength)
+            else if (e.source == buttonPlusLength){
+                pass.setLength(pass.getLength() + 1)
+                textFieldLength.text = "" + pass.getLength()
+            }
 
             displayPanel.repaint()
         }
