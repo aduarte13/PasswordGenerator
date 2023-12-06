@@ -25,7 +25,7 @@ class SelectionPanel(
         border = BorderFactory.createTitledBorder("Options")
         layout = FlowLayout()
 
-
+        val listener = SelectionListener()
 
         //
         textFieldLength.text = "" + pass.getLength()
@@ -34,8 +34,8 @@ class SelectionPanel(
         textFieldLength.horizontalAlignment = JTextField.CENTER
 
         // action listeners
-        buttonMinusLength.addActionListener(SelectionListener())
-        buttonPlusLength.addActionListener(SelectionListener())
+        buttonMinusLength.addActionListener(listener)
+        buttonPlusLength.addActionListener(listener)
 
         panelLengthSelection.add(buttonMinusLength)
         panelLengthSelection.add(textFieldLength)
