@@ -15,4 +15,11 @@ class Password(
     fun buildPassword(){
 
     }
+
+    fun getLength() = optionLength
+
+    fun setLength(num: Int){
+        optionLength = num
+    }
+
 }

@@ -1,14 +1,20 @@
+import java.awt.Dimension
 import java.awt.FlowLayout
 import java.awt.event.ActionEvent
 import java.awt.event.ActionListener
 import javax.swing.*
+
 
 class SelectionPanel(
     private val pass: Password,
     private val displayPanel: DisplayPanel
 ) : JPanel(){
 
-    private val sliderOptionLength: JSlider = JSlider(5, 35, 10)
+    // length selection components
+    private val panelLengthSelection: JPanel = JPanel()
+    private val buttonMinusLength: JButton = JButton("-")
+    private val buttonPlusLength: JButton = JButton("+")
+    private val textFieldLength: JTextField = JTextField()
     //private var optionIncludeNumber: Boolean = true,
     //private var optionIncludeUpperAndLower: Boolean = false,
     //private var optionIncludeSpecial: Boolean = false,
@@ -20,16 +26,34 @@ class SelectionPanel(
         layout = FlowLayout()
 
         //
-        sliderOptionLength.paintTicks = true
-        sliderOptionLength.paintTrack = true
-        sliderOptionLength.paintLabels = true
-        sliderOptionLength.majorTickSpacing = 10
-        sliderOptionLength.minorTickSpacing = 5
+        textFieldLength.text = "" + pass.getLength()
+        textFieldLength.preferredSize = Dimension(30, 30)
+        textFieldLength.isEditable = false
+        textFieldLength.horizontalAlignment = JTextField.CENTER
+
+        // action listeners
+        buttonMinusLength.addActionListener(SelectionListener())
+
+        panelLengthSelection.add(buttonMinusLength)
+        panelLengthSelection.add(textFieldLength)
+        panelLengthSelection.add(buttonPlusLength)
 
         // add components to panel
-        add(sliderOptionLength)
+        add(panelLengthSelection)
 
     }
+
+    inner class SelectionListener : ActionListener {
+        override fun actionPerformed(e: ActionEvent) {
+            if (e.source == buttonMinusLength){
+
+            }
+            else if (e.source == buttonPlusLength)
+
+            displayPanel.repaint()
+        }
+    }
+
 }
 
 
