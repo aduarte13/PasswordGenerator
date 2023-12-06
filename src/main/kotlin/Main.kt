@@ -10,14 +10,14 @@ class Main : JFrame(){
         // create music structure and panels
         val pass = Password()
         val displayPanel = DisplayPanel(pass)
-        //val selectionPanel = SelectionPanel(pass, displayPanel)
+        val selectionPanel = SelectionPanel(pass, displayPanel)
 
         // set panel sizes
-        //selectionPanel.preferredSize = Dimension(850, 60)
+        selectionPanel.preferredSize = Dimension(350, 50)
         displayPanel.preferredSize = Dimension(350, 50)
 
         // add panels to frame
-        //add(selectionPanel, BorderLayout.CENTER)
+        add(selectionPanel, BorderLayout.CENTER)
         add(displayPanel, BorderLayout.SOUTH)
 
         pack()
