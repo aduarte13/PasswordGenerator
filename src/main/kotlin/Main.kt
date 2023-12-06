@@ -32,9 +32,3 @@ class Main : JFrame(){
 fun main(args: Array<String>) {
     Main()
 }
-
-// SCRIBBLES:
-// OPTIONS:
-//    PASSWORD LENGTH (SLIDER)
-//    ALLOW/DISALLOW DUPLICATES (CHECK BOX)
-//
