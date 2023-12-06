@@ -1,5 +1,6 @@
 import java.awt.Dimension
 import java.awt.FlowLayout
+import java.awt.Font
 import java.awt.event.ActionEvent
 import java.awt.event.ActionListener
 import javax.swing.*
@@ -9,6 +10,8 @@ class SelectionPanel(
     private val pass: Password,
     private val displayPanel: DisplayPanel
 ) : JPanel(){
+    private val lengthMin = 5
+    private val lengthMax = 35
 
     // length selection components
     private val panelLengthSelection: JPanel = JPanel()
@@ -32,6 +35,7 @@ class SelectionPanel(
         textFieldLength.preferredSize = Dimension(30, 30)
         textFieldLength.isEditable = false
         textFieldLength.horizontalAlignment = JTextField.CENTER
+        textFieldLength.font = Font("Arial", Font.BOLD , 25)
 
         // action listeners
         buttonMinusLength.addActionListener(listener)
@@ -55,6 +59,13 @@ class SelectionPanel(
             else if (e.source == buttonPlusLength){
                 pass.setLength(pass.getLength() + 1)
                 textFieldLength.text = "" + pass.getLength()
+            }
+
+            if (pass.getLength() == lengthMin || pass.getLength() == lengthMax){
+                textFieldLength.font = Font("Arial", Font.BOLD , 25)
+            }
+            else{
+                textFieldLength.font = Font("Arial", Font.PLAIN , 25)
             }
 
             displayPanel.repaint()
