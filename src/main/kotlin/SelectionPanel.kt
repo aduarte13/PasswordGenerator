@@ -52,11 +52,11 @@ class SelectionPanel(
 
     inner class SelectionListener : ActionListener {
         override fun actionPerformed(e: ActionEvent) {
-            if (e.source == buttonMinusLength){
+            if (e.source == buttonMinusLength && pass.getLength() > lengthMin){
                 pass.setLength(pass.getLength() - 1)
                 textFieldLength.text = "" + pass.getLength()
             }
-            else if (e.source == buttonPlusLength){
+            else if (e.source == buttonPlusLength && pass.getLength() < lengthMax){
                 pass.setLength(pass.getLength() + 1)
                 textFieldLength.text = "" + pass.getLength()
             }
