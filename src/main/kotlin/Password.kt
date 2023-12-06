@@ -16,6 +16,8 @@ class Password(
 
     }
 
+    fun getPassword() = passwordString
+
     fun getLength() = optionLength
 
     fun setLength(num: Int){

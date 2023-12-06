@@ -24,6 +24,8 @@ class SelectionPanel(
     //private var optionIncludeWord: Boolean = false,
     //private var optionNoDuplicates: Boolean = false
 
+    private val generateButton: JButton = JButton("Generate")
+
     init {
         border = BorderFactory.createTitledBorder("Options")
         layout = FlowLayout()
@@ -40,13 +42,17 @@ class SelectionPanel(
         // action listeners
         buttonMinusLength.addActionListener(listener)
         buttonPlusLength.addActionListener(listener)
+        generateButton.addActionListener(listener)
 
+        // add components to sub-panels if needed
         panelLengthSelection.add(buttonMinusLength)
         panelLengthSelection.add(textFieldLength)
         panelLengthSelection.add(buttonPlusLength)
 
+
         // add components to panel
         add(panelLengthSelection)
+        add(generateButton)
 
     }
 
@@ -66,6 +72,11 @@ class SelectionPanel(
             }
             else{
                 textFieldLength.font = Font("Arial", Font.PLAIN , 25)
+            }
+
+            if (e.source == generateButton){
+                println("Password generated: ")
+                print(pass.getPassword())
             }
 
             displayPanel.repaint()
